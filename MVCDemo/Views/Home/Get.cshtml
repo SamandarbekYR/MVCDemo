@@ -1,0 +1,38 @@
+﻿@model List<User>;
+
+<div class="mt-5  box">
+    <form asp-controller="home" asp-action="Get">
+        <div class="mt-4">
+                @if (Model == null || !Model.Any() )
+                {
+                    <p class="text-secondary text-center">Hech qanday ma'lumotlar yo'q</p>
+                }
+                else
+                {
+                <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th>#ID</th>
+                                <th>Name</th>
+                                <th>Phone number</th>
+                                <th>Password</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.PhoneNumber</td>
+                                    <td>@item.Password</td>
+                                </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                }
+        </div>
+    </form>
+</div>
